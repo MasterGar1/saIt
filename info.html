@@ -3,75 +3,62 @@
 	<head>
 		<title>Chess but more exciting</title>
 		<link rel="icon" type="image/x-icon" href="icon.png">
-		<style>
-			body {
-				background-color: #adadad;
-			}
-			h1 {
-				color: black;
-			}
-			p {
-				color: black;
-			}
-			.range {
-				width: 300px;
-			}
-			figcaption {
-				font-size: 69%;
-			}
-		</style>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	
 	<body>
-		<h1><a href="index.html">Exciting Chess</a> rules</h1>
-		
-		<article>
-			<h2>How to play</h2>
-			<p>In the game you have the same starting setup as a normal chess game, but the difference is the behaviour of the pieces. The game is played by two players - white and black. You can only do one action per turn - Attack or Move</p>
-			<h3>Each piece and what it does</h3>
-			<ul>
-				<li>Pawn - A pawn has a small amount of HP and a weak attack. It strikes a figure in the 3 tiles ahead of itself. After attacking, it gains 1 damage protection for the next time it gets hit. The pawn can only move by one tile at a time in each direction.</li>
-				<figure>
-					<img src="pieces/PWF.png"> <img src="pieces/PBF.png"> <img src="ranges/PAR.png" class="range"> <img src="ranges/PMV.png" class="range">
-					<figcaption>The pawn and its patterns</figcaption>
-				</figure>
-				
-				<li>Knight - knights are very mobile. They do not have separate movement and attack patterns. When they move over a target, they strike them. Their HP and damage are average. They can jump up to three tiles ahead of themselves.</li>
-				<figure>
-					<img src="pieces/HWF.png"> <img src="pieces/HBF.png"> <img src="ranges/HMA.png" class="range">
-					<figcaption>The knight and its jump range</figcaption>
-				</figure>
-				
-				<li>Rook - the rooks are very tanky and devastating amounts of damage, but are unable to move. They can only remain in their starting position and attack in a square range of 4 tiles around them, but every other round.</li>
-				<figure>
-					<img src="pieces/RWF.png"> <img src="pieces/RBF.png"> <img src="ranges/RAR.png" class="range">
-					<figcaption>The rook and its shooting range</figcaption>
-				</figure>
-				
-				<li>Bishop - the bighop is a very agressive piece. It does high amounts of damage to all targets it the three tiles in front, but has very low HP. Bishops can swiftly move two tiles in each direction.</li>
-				<figure>
-					<img src="pieces/BWF.png"> <img src="pieces/BBF.png"> <img src="ranges/BAR.png" class="range"> <img src="ranges/BMV.png"  class="range">
-					<figcaption>The bishop and its striking range</figcaption>
-				</figure>
-				
-				<li>Queen - the queen, as all women, is a very deadly figure. It can move long distances and strike foes with critical strikes which occur every other hit she deals. She has an average amount of HP and medium attack power, but can deal double damage with critical strikes.</li>
-				<figure>
-					<img src="pieces/QWF.png"> <img src="pieces/QBF.png"> <img src="ranges/QAR.png" class="range"> <img src="ranges/QMV.png"  class="range">
-					<figcaption>The queen and her ranges</figcaption>
-				</figure>
-				
-				<li>King - the king is the ruler of the nation. He cannot attack, but can heal allied units within the eight surrounding tiles. He has a high amount of health and can move one tile at a time.</li>
-				<figure>
-					<img src="pieces/KWF.png"> <img src="pieces/KBF.png"> <img src="ranges/KAR.png" class="range"> <img src="ranges/KMV.png"  class="range">
-					<figcaption>The king and his healing radius</figcaption>
-				</figure>
-			</ul>
-		</article>
-		
-		<atricle>
-			<h2>The Board</h2>
-			<p>It is the same as a normal chess board. The pieces are in the same positions</p>
-		</article>
-		
+	
+	<ul class="navbar">
+		<li class="navbar"><a href="index.html">Home</a></li>
+		<li class="navbar current"><a href="info.html">Info</a></li>
+		<li class="navbar"><a href="game.html">Game</a></li>
+	</ul>
+	
+	<h1>Exciting Chess rules</h1>
+	
+	<h2>How to play</h2>
+		<p>In the game you have the same starting setup as a normal chess game, but the difference is the behaviour of the pieces. The game is played by two players - white and black. You can only do one action per turn - Attack or Move</p>
+		<h3>Each piece and what it does</h3>
+		<ul>
+			<li>Pawn - A pawn has a small amount of HP and a weak attack. It strikes a figure in the 3 tiles ahead of itself. After attacking, it gains 1 damage protection for the next time it gets hit. The pawn can only move by one tile at a time in each direction.</li>
+			<figure>
+				<img src="pieces/PWF.png" class="sprite"> <img src="pieces/PBF.png" class="sprite"> <img src="ranges/PAR.png" class="range"> <img src="ranges/PMV.png" class="range">
+				<figcaption>The pawn and its patterns</figcaption>
+			</figure>
+			
+			<li>Knight - knights are very mobile. They do not have separate movement and attack patterns. When they move over a target, they strike them. Their HP and damage are average. They can jump up to three tiles ahead of themselves.</li>
+			<figure>
+				<img src="pieces/HWF.png" class="sprite"> <img src="pieces/HBF.png" class="sprite"> <img src="ranges/HMA.png" class="range">
+				<figcaption>The knight and its jump range</figcaption>
+			</figure>
+			
+			<li>Rook - the rooks are very tanky and devastating amounts of damage, but are unable to move. They can only remain in their starting position and attack in a square range of 4 tiles around them, but every other round.</li>
+			<figure>
+				<img src="pieces/RWF.png" class="sprite"> <img src="pieces/RBF.png" class="sprite"> <img src="ranges/RAR.png" class="range">
+				<figcaption>The rook and its shooting range</figcaption>
+			</figure>
+			
+			<li>Bishop - the bighop is a very agressive piece. It does high amounts of damage to all targets it the three tiles in front, but has very low HP. Bishops can swiftly move two tiles in each direction.</li>
+			<figure>
+				<img src="pieces/BWF.png" class="sprite"> <img src="pieces/BBF.png" class="sprite"> <img src="ranges/BAR.png" class="range"> <img src="ranges/BMV.png"  class="range">
+				<figcaption>The bishop and its striking range</figcaption>
+			</figure>
+			
+			<li>Queen - the queen, as all women, is a very deadly figure. It can move long distances and strike foes with critical strikes which occur every other hit she deals. She has an average amount of HP and medium attack power, but can deal double damage with critical strikes.</li>
+			<figure>
+				<img src="pieces/QWF.png" class="sprite"> <img src="pieces/QBF.png" class="sprite"> <img src="ranges/QAR.png" class="range"> <img src="ranges/QMV.png"  class="range">
+				<figcaption>The queen and her ranges</figcaption>
+			</figure>
+			
+			<li>King - the king is the ruler of the nation. He cannot attack, but can heal allied units within the eight surrounding tiles. He has a high amount of health and can move one tile at a time.</li>
+			<figure>
+				<img src="pieces/KWF.png" class="sprite"> <img src="pieces/KBF.png" class="sprite"> <img src="ranges/KAR.png" class="range"> <img src="ranges/KMV.png"  class="range">
+				<figcaption>The king and his healing radius</figcaption>
+			</figure>
+		</ul>
+	
+		<h2>The Board</h2>
+		<p>It is the same as a normal chess board. The pieces are in the same positions.</p>
+		<img id="board" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg">
 	</body>
 </html>
