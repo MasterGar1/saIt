@@ -1,5 +1,12 @@
+:root {
+	--color1: #F0EBE3;
+	--color2: #E4DCCF;
+	--color3: #7D9D9C;
+	--color4: #576F72;
+}
+
 body {
-	background-color: #adadad;
+	background-color: #F0EBE3;
 	margin: 0;
 }
 
@@ -9,63 +16,6 @@ h1, h2, h3 {
 
 h1 {
 	margin-top: 70px;
-}
-
-#title {
-	letter-spacing: 8px;
-	animation-name: pain;
-	animation-duration: 2s;
-	animation-iteration-count: infinite;
-}
-
-@keyframes pain {
-	0% {
-		color: orange; 
-		background-color: coral; 
-		font-size: 100%;
-	}
-	10% {
-		color: purple; 
-		background-color: green;
-	}
-	20% {
-		color: red;
-		background-color: cyan;
-	}
-	30% {
-		color: CadetBlue;
-		background-color: DeepPink;
-	}
-	40% {
-		color: yellow; 
-		background-color: DodgerBlue;
-	}
-	50% {
-		color: coral; 
-		background-color: orange; 
-		font-size: 250%;
-	}
-	60% {
-		color: green; 
-		background-color: orange;
-	}
-	70% {
-		color: cyan; 
-		background-color: purple;
-	}
-	80% {
-		color: DeepPink; 
-		background-color: red;
-	}
-	90% {
-		color: DodgerBlue; 
-		background-color: CadetBlue;
-	}
-	100% {
-		color: orange; 
-		background-color: yellow; 
-		font-size: 100%;
-	}
 }
 
 p {
@@ -82,7 +32,7 @@ ul.navbar {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #576F72;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -107,11 +57,12 @@ li.navbar a {
 }
 
 li.navbar a:hover {
-	background-color: darkred;
+	color: black;
+	background-color: #E4DCCF;
 }
 
 li.current {
-	background-color: #5e5e5e;
+	background-color: #7D9D9C;
 }
 
 img {
@@ -144,9 +95,9 @@ video {
 }
 
 a:link {
-	color: red;
+	color: #7D9D9C;
 }
 
 a:visited {
-	color: darkred;
+	color: #576F72;
 }
