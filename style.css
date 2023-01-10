@@ -1,30 +1,53 @@
 :root {
-	--color1: #F0EBE3;
-	--color2: #E4DCCF;
-	--color3: #7D9D9C;
-	--color4: #576F72;
+	--back: #F5D7A1;
+	--navbar: hsl(329, 48%, 34%); /*812D58*/
+	--select: rgb(240, 162, 142); /*F0A28E*/
+	--current: hsl(347, 38%, 56%); /*BA6476*/
+	--serif: "PierceRoman";
+	--sans-serif: "GothicaBook";
 }
 
 body {
-	background-color: #F0EBE3;
+	background-color: var(--back);
 	margin: 0;
 }
 
 h1, h2, h3 {
-	text-align: center;
+	margin-left: 5%;
+	font-family: var(--sans-serif), sans-serif;
+	font-size: 36px;
 }
 
 h1 {
 	margin-top: 70px;
+	font-size: 42px;
 }
 
 p {
-	text-align: center;
+	font-family: var(--serif), serif;
+	font-size: 24px;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 ul, li {
-	text-align: center;
+	font-family: var(--serif), serif;
+	font-size
 	color: black;
+	font-size: 24px;
+	margin-left: 50px;
+	margin-right: 50px;
+	list-style-type: circle;
+	list-style-position: outside;
+}
+
+ul.navbar li {
+	text-align: center;
+	font-family: var(--sans-serif), sans-serif;
+	font-size: 20px;
+	color: black;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 ul.navbar {
@@ -32,23 +55,26 @@ ul.navbar {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #576F72;
+	background-color: var(--navbar);
 	position: fixed;
 	top: 0;
 	width: 100%;
 }
 
-li.navbar {
+ul.navbar > li {
 	display: inline;
 	float: left;
 	border-right: 1px solid #bbb;
 }
 
-li.navbar:last-child {
+ul.navbar > li:last-child {
+	display: inline;
+	float: right;
+	border-left: 1px solid #bbb;
 	border-right: none;
 }
 
-li.navbar a {
+ul.navbar > li a {
 	display: block;
 	color: white;
 	text-align: center;
@@ -56,13 +82,13 @@ li.navbar a {
 	text-decoration: none;
 }
 
-li.navbar a:hover {
+ul.navbar > li a:hover {
 	color: black;
-	background-color: #E4DCCF;
+	background-color: var(--select);
 }
 
 li.current {
-	background-color: #7D9D9C;
+	background-color: var(--current);
 }
 
 img {
@@ -72,18 +98,18 @@ img {
 .sprite {
 	height: 300px;
 	width: auto;
-	border-style: dashed;
+	border-style: double;
 }
 
 .range {
 	height: 300px;
 	width: auto;
-	border-style: dashed;
+	border-style: double;
+	padding: 4px;
 }
 
 #board {
-	width: 500px;
-	margin-left: 30%;
+	margin-left: 5%;
 }
 
 figcaption {
@@ -95,9 +121,9 @@ video {
 }
 
 a:link {
-	color: #7D9D9C;
+	color: var(--navbar);
 }
 
 a:visited {
-	color: #576F72;
+	color: var(--current);
 }
