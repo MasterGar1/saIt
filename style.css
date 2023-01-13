@@ -148,3 +148,14 @@ a:visited {
 	margin-top: 10px;
 	font-family: var(--sans-serif), sans-serif;
 }
+
+.catpic{
+	display: flex;
+	width: 50%;
+	margin: 20px;
+	margin-left: 5%;
+	float: flex;
+	border-style: inset outset; 
+	border-width: 5px;
+	border-color: var(--current);
+}
