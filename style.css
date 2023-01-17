@@ -1,8 +1,8 @@
 :root {
 	--back: #F5D7A1;
-	--navbar: hsl(329, 48%, 34%); /*812D58*/
-	--select: rgb(240, 162, 142); /*F0A28E*/
-	--current: hsl(347, 38%, 56%); /*BA6476*/
+	--navbar: #812D58;
+	--select: #F0A28E;
+	--current: #BA6476;
 	--serif: "PierceRoman";
 	--sans-serif: "GothicaBook";
 }
@@ -24,7 +24,7 @@ h1 {
 	text-shadow: 2px 2px 5px var(--current);
 }
 
-body{
+body {
 	animation-name: fun;
 	animation-duration: 0.1s;
 	animation-iteration-count: 3;
@@ -105,33 +105,8 @@ li.current {
 	background-color: var(--current);
 }
 
-img {
-	width: 400px;
-}
-
-.sprite {
-	height: 300px;
-	width: auto;
-	border-style: double;
-}
-
-.range {
-	height: 300px;
-	width: auto;
-	border-style: double;
-	padding: 4px;
-}
-
 img[src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Chess_Board.svg"] {
 	margin-left: 5%;
-}
-
-figcaption {
-	font-size: 69%;
-}
-
-video {
-	width: 500px;
 }
 
 a:link {
@@ -158,4 +133,11 @@ a:visited {
 	border-style: inset outset; 
 	border-width: 5px;
 	border-color: var(--current);
+}
+
+.modal .overlay~*,.card {
+	border-radius: 0;
+	background-color: transparent;
+	border-style: none;
+	border-color: black;
 }
