@@ -9,13 +9,21 @@
 		<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/gothica" type="text/css"/>
 	</head>
 	<body>
-		<ul class="navbar">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="info.html">Info</a></li>
-			<li class="current"><a href="game.html">Game</a></li>
-			<li><a href="about.html">About Me</a></li>
-		</ul>
+		<nav>
+			<a href="index.html" class="brand">
+				<img class="logo" src="icon.png"/>
+				<span>Chess but exciting</span>
+			</a>
+			<input id="menu" type="checkbox" class="show">
+			<label for="menu" class="burger pseudo button">Menu</label>
+
+			<div class="menu">
+				<a href="info.html" class="pseudo button">Info</a>
+				<a href="game.html" class="pseudo button">Game</a>
+				<a href="about.html" class="pseudo button">About Me</a>
+			</div>
+		</nav>
 		<h1>Game</h1>
-		<p id="big">WIP</p>
+		<p id="big" class="flex one center">WIP</p>
 	</body>
 </html>
