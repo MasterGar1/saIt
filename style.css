@@ -3,8 +3,8 @@
 	--navbar: #3C6255;
 	--select: #A6BB8D;
 	--current: #61876E;
-	--serif: "PierceRoman";
-	--sans-serif: "GothicaBook";
+	--serif: 'GLTsukiji2goRegular';
+	--sans-serif: 'MariusRegular';
 }
 
 body {
@@ -26,6 +26,11 @@ h1 {
 
 h1::first-letter {
 	font-size: 48px;
+}
+
+h3 {
+	font-family: var(--sans-serif), serif;
+	font-size: 28px;
 }
 
 p {
@@ -71,4 +76,20 @@ nav {
 
 span {
 	color: var(--select);
+}
+
+h3 + li {
+	list-style-type: square;
+	margin-left: 7%;
+}
+
+article > img {
+	margin-left: 13%;
+	padding: 3px;
+	border: 1px groove;
+	border-radius: 5px;
+}
+
+.powers {
+	margin-left: 5%;
 }

@@ -19,6 +19,12 @@ let enemiesKilled = 0;
 let spawnRate = 10;
 let playing = false;
 
+const ASincrease = 0.5;
+const AtKincrease = 3;
+const HPincrease = 15;
+const ALincrease = 8;
+const AWincrease = 4;
+
 let heroImages = [];
 let enemyImages = [];
 let powerupImages = [];
@@ -231,19 +237,19 @@ class Hero {
 
 		switch (type) {
 			case 0:
-				this.attackSpeed += 0.5;
+				this.attackSpeed += ASincrease;
 				break;
 			case 1:
-				this.damage += 3;
+				this.damage += AtKincrease;
 				break;
 			case 2:
-				this.health += 15;
+				this.health += HPincrease;
 				break;
 			case 3:
-				this.attackLength += 8;
+				this.attackLength += ALincrease;
 				break;
 			case 4:
-				this.attackWidth += 4;
+				this.attackWidth += AWincrease;
 				break;
 		}
 
