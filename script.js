@@ -19,12 +19,6 @@ let enemiesKilled = 0;
 let spawnRate = 10;
 let playing = false;
 
-const ASincrease = 0.5;
-const AtKincrease = 3;
-const HPincrease = 15;
-const ALincrease = 8;
-const AWincrease = 4;
-
 let heroImages = [];
 let enemyImages = [];
 let powerupImages = [];

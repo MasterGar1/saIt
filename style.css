@@ -3,7 +3,7 @@
 	--navbar: #3C6255;
 	--select: #A6BB8D;
 	--current: #61876E;
-	--serif: 'GLTsukiji2goRegular';
+	--serif: 'ArchitectsDaughterRegular';
 	--sans-serif: 'MariusRegular';
 }
 
@@ -35,13 +35,13 @@ h3 {
 
 p {
 	font-family: var(--serif), serif;
-	font-size: 24px;
+	font-size: 20px;
 }
 
 ul, li {
 	font-family: var(--serif), serif;
 	color: black;
-	font-size: 24px;
+	font-size: 20px;
 	margin-left: 50px;
 	margin-right: 50px;
 	list-style-type: circle;
@@ -66,7 +66,7 @@ a:visited {
 nav {
 	background-color: var(--navbar);
 	color: var(--select);
-	font-family: var(--serif), serif;
+	font-family: var(--sans-serif), sans-serif;
 	font-size: 20px;
 }
 
@@ -79,7 +79,7 @@ span {
 }
 
 h3 + li {
-	list-style-type: square;
+	list-style-type: none;
 	margin-left: 7%;
 }
 
@@ -92,4 +92,8 @@ article > img {
 
 .powers {
 	margin-left: 5%;
+}
+
+button {
+	font-family: var(--sans-serif), sans-serif;
 }
