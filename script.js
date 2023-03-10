@@ -42,14 +42,18 @@ class Hero {
 		this.spriteCounter = 0;
 		this.sprite = 0;
 
+		this.setupStats();
+		this.mousePressed = false;
+
+	}
+	// залагаме началните статистики на героя
+	setupStats() {
 		this.health = 50;
 		this.damage = 5;
 		this.attackLength = 64;
 		this.attackWidth = 32;
 		this.attackCharge = 0;
 		this.attackSpeed = 1.5;
-		this.mousePressed = false;
-
 	}
 	// обновяване на всички събития, случили се на героя при всяко завъртане на играта
 	update() {
@@ -181,8 +185,8 @@ class Hero {
 	}
 	// смятаме точките на полето за атака
 	attackRange() {
-		let hx = this.x + tileSize / 2;
-		let hy = this.y + tileSize / 2;
+		let hx = this.x + this.size / 2;
+		let hy = this.y + this.size / 2;
 		let dx = hx - clientX;
 		let dy = hy - clientY;
 		let distance = Math.sqrt(dx ** 2 + dy ** 2);
@@ -353,7 +357,7 @@ class Enemy {
 			hero.health -= this.damage;
 			this.currentCooldown += this.attackCooldown;
 			if (hero.health <= 0) {
-				hero = new Hero(10, 10, 5);
+				resetGame();
 			}
 		}
 	}
@@ -418,7 +422,10 @@ function gameLoop(timeStamp) {
 	if (playing) {
 		seconds = totalSeconds / 60;
 		if (seconds % 10 == 0) {
-			spawnBtn.onclick();
+			let spawNum = Math.floor(Math.random() * 3 + 1) * difficulty;
+			for(let i = 0; i < spawNum; i++){
+				spawnBtn.onclick();
+			}
 		}
 	}
 
@@ -502,18 +509,18 @@ document.onkeyup = function (e) {
 	}
 }
 // проверява натискане на мишката
-document.onmousedown = function (e) {
+cvs.onmousedown = function (e) {
 	hero.mousePressed = true;
 }
 // проверява отпускане на мишката
-document.onmouseup = function (e) {
+cvs.onmouseup = function (e) {
 	hero.mousePressed = false;
 	hero.attackCharge = 0;
 }
 // засича къде се намира мишката
 document.onmousemove = function (e) {
 	clientX = e.clientX;
-	clientY = e.clientY;
+	clientY = e.clientY - 70;
 }
 // проверява дали два правоъгълника се пресичат
 function intersectionRect(a, b) {
@@ -530,6 +537,8 @@ function intersectionRect(a, b) {
 function PointInPoly(point, poly) {
 	let x = point[0];
 	let y = point[1];
+	poly.pop();
+	poly.pop();
 
 	let isInside = false;
 	for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
@@ -577,9 +586,7 @@ powerBtn.onclick = function () {
 }
 // премахва вдички обекти от картата
 resetBtn.onclick = function () {
-	enemies = [];
-	powerups = [];
-	hero = new Hero(10, 10, 5);
+	resetGame();
 }
 // стартира или спира играта
 playBtn.onclick = function () {
@@ -598,6 +605,14 @@ function updateDifficulty() {
 		difficulty += 1;
 		spawnRate = 10 - (difficulty < 10 ? difficulty - 1 : 9);
 	}
+}
+// рестартира играта
+function resetGame(){
+	hero = new Hero(10, 10, 5);
+	enemies = [];
+	powerups = [];
+	difficulty = 1;
+	enemyNum = 0;
 }
 // поставя статистиките на героя
 function setText() {

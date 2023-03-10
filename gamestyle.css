@@ -6,13 +6,14 @@ body {
 
 button {
 	float: right;
-	background-color: #3C6255;
-	color: #A6BB8D;
+	background-color: var(--navbar);
+	color: var(--select);
 	margin-right: 10px;
 }
 
 canvas {
 	position: absolute;
+	background-color: #f9ba87;
 }
 
 p {
