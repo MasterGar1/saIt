@@ -1,0 +1,99 @@
+:root {
+	--back: #EAE7B1;
+	--navbar: #3C6255;
+	--select: #A6BB8D;
+	--current: #61876E;
+	--serif: 'ArchitectsDaughterRegular';
+	--sans-serif: 'MariusRegular';
+}
+
+body {
+	background-color: var(--back);
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-top: 70px;
+}
+
+h1, h2 {
+	font-family: var(--sans-serif), sans-serif;
+	font-size: 36px;
+}
+
+h1 {
+	font-size: 42px;
+	text-shadow: 2px 2px 5px var(--current);
+}
+
+h1::first-letter {
+	font-size: 48px;
+}
+
+h3 {
+	font-family: var(--sans-serif), serif;
+	font-size: 28px;
+}
+
+p {
+	font-family: var(--serif), serif;
+	font-size: 20px;
+}
+
+ul, li {
+	font-family: var(--serif), serif;
+	color: black;
+	font-size: 20px;
+	margin-left: 50px;
+	margin-right: 50px;
+	list-style-type: circle;
+	list-style-position: outside;
+}
+
+a:link {
+	color: var(--navbar);
+}
+
+a:visited {
+	color: var(--current);
+}
+
+.modal .overlay~*,.card {
+	border-radius: 0;
+	background-color: transparent;
+	border-style: none;
+	border-color: black;
+}
+
+nav {
+	background-color: var(--navbar);
+	color: var(--select);
+	font-family: var(--sans-serif), sans-serif;
+	font-size: 20px;
+}
+
+.sprite {
+	width: 64px;
+}
+
+span {
+	color: var(--select);
+}
+
+h3 + li {
+	list-style-type: none;
+	margin-left: 7%;
+}
+
+article > img {
+	margin-left: 13%;
+	padding: 3px;
+	border: 1px groove;
+	border-radius: 5px;
+}
+
+.powers {
+	margin-left: 5%;
+}
+
+button {
+	font-family: var(--sans-serif), sans-serif;
+}

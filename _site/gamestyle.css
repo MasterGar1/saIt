@@ -1,0 +1,35 @@
+body {
+	padding: 5px;
+	padding-top: 70px;
+	margin: 0;
+}
+
+button {
+	float: right;
+	background-color: var(--navbar);
+	color: var(--select);
+	margin-right: 10px;
+}
+
+canvas {
+	position: absolute;
+	background-color: #f9ba87;
+}
+
+p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 20px;
+	float: right;
+	user-select: none;
+}
+
+br {
+	user-select: none;
+}
+
+input {
+	float: right;
+	margin-right: 20px;
+	user-select: none;
+}

@@ -1,9 +1,27 @@
----
-layout: default
-title: Info
----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Info</title>
+		<link rel="icon" type="image/x-icon" href="icon.png">
+		<link rel="stylesheet" href="picnic.css">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/architecture-font" type="text/css"/> 
+		<link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/marius1" type="text/css"/>  
+	</head>
+	<body>
+        <nav>
+    <a href="index.html" class="brand">
+        <img class="logo" src="icon.png"/>
+        <span>Breaking the apocalypse</span>
+    </a>
+    <input id="menu" type="checkbox" class="show">
+    <label for="menu" class="burger pseudo button">Menu</label>
 
-{% include navigation.html %}
+    <div class="menu">
+        <a href="info.html" class="pseudo button">Info</a>
+        <a href="game.html" class="pseudo button">Game</a>
+    </div>
+</nav>
 
 <h1>Game rules</h1>
 
@@ -53,3 +71,5 @@ title: Info
 	</div>
 </div>
 <script src="const.js"></script>
+	</body>
+</html>
