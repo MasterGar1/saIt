@@ -2,7 +2,7 @@ const ASincrease = 0.5;
 const AtKincrease = 3;
 const HPincrease = 15;
 const ALincrease = 8;
-const AWincrease = 4;
+const AWincrease = 8;
 
 const hp = document.getElementById("hp");
 hp.textContent += HPincrease;

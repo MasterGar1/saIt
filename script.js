@@ -6,7 +6,7 @@ const powerBtn = document.getElementById("power");
 const playBtn = document.getElementById("play");
 const textBox = [document.getElementById("line1"), document.getElementById("line2"), document.getElementById("line3"), document.getElementById("line4"), document.getElementById("line5"), document.getElementById("line6"), document.getElementById("line7")];
 
-const tilesX = 22;
+const tilesX = 24;
 const tilesY = 16;
 const tileSize = 32;
 cvs.width = tilesX * tileSize;
@@ -41,6 +41,7 @@ class Hero {
 		this.direction = "down";
 		this.spriteCounter = 0;
 		this.sprite = 0;
+		this.class = 'm';
 
 		this.setupStats();
 		this.mousePressed = false;
@@ -48,12 +49,35 @@ class Hero {
 	}
 	// залагаме началните статистики на героя
 	setupStats() {
-		this.health = 50;
-		this.damage = 5;
-		this.attackLength = 64;
-		this.attackWidth = 32;
-		this.attackCharge = 0;
-		this.attackSpeed = 1.5;
+		switch(this.class){
+			case 'w':
+				this.health = 50;
+				this.damage = 5;
+				this.attackLength = 64;
+				this.attackWidth = 32;
+				this.attackCharge = 0;
+				this.attackSpeed = 1.5;
+				this.attackColor = "red";
+			break;
+			case 'a':
+				this.health = 40;
+				this.damage = 7;
+				this.attackLength = 256;
+				this.attackWidth = 8;
+				this.attackCharge = 0;
+				this.attackSpeed = 2;
+				this.attackColor = "green";
+			break;
+			case 'm':
+				this.health = 30;
+				this.damage = 15;
+				this.attackLength = 48;
+				this.attackWidth = 48;
+				this.attackCharge = 0;
+				this.attackSpeed = 0.5;
+				this.attackColor = "blue";
+			break;
+		}
 	}
 	// обновяване на всички събития, случили се на героя при всяко завъртане на играта
 	update() {
@@ -67,14 +91,24 @@ class Hero {
 	draw() {
 		let attackPolygon = hero.attackRange();
 
-		ctx.fillStyle = "red";
-		ctx.beginPath();
-		ctx.moveTo(attackPolygon[0][0], attackPolygon[0][1]);
-		ctx.lineTo(attackPolygon[1][0], attackPolygon[1][1]);
-		ctx.lineTo(attackPolygon[4][0], attackPolygon[4][1]);
-		ctx.lineTo(attackPolygon[5][0], attackPolygon[5][1]);
-		ctx.closePath();
-		ctx.fill();
+		ctx.fillStyle = this.attackColor;
+		if(this.class == 'm'){
+			ctx.beginPath();
+			ctx.moveTo(attackPolygon[4][0], attackPolygon[4][1]);
+			ctx.lineTo(attackPolygon[5][0], attackPolygon[5][1]);
+			ctx.lineTo(attackPolygon[6][0], attackPolygon[6][1]);
+			ctx.lineTo(attackPolygon[7][0], attackPolygon[7][1]);
+			ctx.closePath();
+			ctx.fill();
+		} else {
+			ctx.beginPath();
+			ctx.moveTo(attackPolygon[0][0], attackPolygon[0][1]);
+			ctx.lineTo(attackPolygon[1][0], attackPolygon[1][1]);
+			ctx.lineTo(attackPolygon[4][0], attackPolygon[4][1]);
+			ctx.lineTo(attackPolygon[5][0], attackPolygon[5][1]);
+			ctx.closePath();
+			ctx.fill();
+		}
 
 		ctx.beginPath();
 		ctx.moveTo(attackPolygon[0][0], attackPolygon[0][1]);
@@ -187,29 +221,59 @@ class Hero {
 	attackRange() {
 		let hx = this.x + this.size / 2;
 		let hy = this.y + this.size / 2;
-		let dx = hx - clientX;
-		let dy = hy - clientY;
-		let distance = Math.sqrt(dx ** 2 + dy ** 2);
-		let sin = dy / distance;
-		let cos = dx / distance;
 
-		let ax = hx + sin * this.attackWidth / 2;
-		let ay = hy - cos * this.attackWidth / 2;
-		let bx = 2 * hx - ax;
-		let by = 2 * hy - ay;
+		if(this.class == 'm'){
+			let ax = hx - this.attackWidth;
+			let ay = hy + this.attackLength;
 
-		let cx = ax - this.attackLength * cos;
-		let cy = ay - this.attackLength * sin;
-		let fx = bx - this.attackLength * cos;
-		let fy = by - this.attackLength * sin;
+			let bx = hx + this.attackWidth;
+			let by = hy + this.attackLength;
 
-		let px = ax - this.attackLength * cos * (this.attackCharge / 100);
-		let py = ay - this.attackLength * sin * (this.attackCharge / 100);
-		let qx = bx - this.attackLength * cos * (this.attackCharge / 100);
-		let qy = by - this.attackLength * sin * (this.attackCharge / 100);
+			let cx = hx + this.attackWidth;
+			let cy = hy - this.attackLength;
 
-		let polygon = [[ax, ay], [bx, by], [fx, fy], [cx, cy], [qx, qy], [px, py]];
-		return polygon;
+			let dx = hx - this.attackWidth;
+			let dy = hy - this.attackLength;
+
+			let ax1 = hx - this.attackWidth * (this.attackCharge / 100);
+			let ay1 = hy + this.attackLength * (this.attackCharge / 100);
+
+			let bx1 = hx + this.attackWidth * (this.attackCharge / 100);
+			let by1 = hy + this.attackLength * (this.attackCharge / 100);
+
+			let cx1 = hx + this.attackWidth * (this.attackCharge / 100);
+			let cy1 = hy - this.attackLength * (this.attackCharge / 100);
+
+			let dx1 = hx - this.attackWidth * (this.attackCharge / 100);
+			let dy1 = hy - this.attackLength * (this.attackCharge / 100);
+
+			let polygon = [[ax, ay], [bx, by], [cx, cy], [dx, dy], [ax1, ay1], [bx1, by1], [cx1, cy1], [dx1, dy1]];
+			return polygon;
+		} else {
+			let dx = hx - clientX;
+			let dy = hy - clientY;
+			let distance = Math.sqrt(dx ** 2 + dy ** 2);
+			let sin = dy / distance;
+			let cos = dx / distance;
+
+			let ax = hx + sin * this.attackWidth / 2;
+			let ay = hy - cos * this.attackWidth / 2;
+			let bx = 2 * hx - ax;
+			let by = 2 * hy - ay;
+
+			let cx = ax - this.attackLength * cos;
+			let cy = ay - this.attackLength * sin;
+			let fx = bx - this.attackLength * cos;
+			let fy = by - this.attackLength * sin;
+
+			let px = ax - this.attackLength * cos * (this.attackCharge / 100);
+			let py = ay - this.attackLength * sin * (this.attackCharge / 100);
+			let qx = bx - this.attackLength * cos * (this.attackCharge / 100);
+			let qy = by - this.attackLength * sin * (this.attackCharge / 100);
+
+			let polygon = [[ax, ay], [bx, by], [fx, fy], [cx, cy], [qx, qy], [px, py]];
+			return polygon;
+		}
 	}
 	// проверява дали има противник в обхвата
 	hit() {
@@ -367,10 +431,11 @@ class Enemy {
 		let b = [this.x + this.size, this.y];
 		let c = [this.x, this.y + this.size];
 		let d = [this.x + this.size, this.y + this.size];
+		let e = [this.x + this.size / 2, this.y + this.size / 2];
 		let range = hero.attackRange();
 		let intersects = false;
 
-		if (PointInPoly(a, range) || PointInPoly(b, range) || PointInPoly(c, range) || PointInPoly(d, range)) {
+		if (PointInPoly(a, range) || PointInPoly(b, range) || PointInPoly(c, range) || PointInPoly(d, range) || PointInPoly(e, range)) {
 			intersects = !intersects;
 		}
 
@@ -489,6 +554,7 @@ document.onkeydown = function (e) {
 			break;
 		case 'r':
 			hero.attackToggle = !hero.attackToggle;
+			hero.attackCharge = 0;
 			break;
 	}
 }
@@ -616,6 +682,7 @@ function resetGame(){
 	powerups = [];
 	difficulty = 1;
 	enemyNum = 0;
+	enemiesKilled = 0;
 }
 // поставя статистиките на героя
 function setText() {
@@ -625,7 +692,7 @@ function setText() {
 	textBox[3].textContent = "Attack Width: " + hero.attackWidth;
 	textBox[4].textContent = "Attack Length: " + hero.attackLength;
 	textBox[5].textContent = "Enemies Killed: " + enemiesKilled;
-	textBox[6].textContent = "Time to next spawn: " + Math.floor(spawnRate - (seconds % 10));
+	textBox[6].textContent = "Time to next spawn: " + (spawnRate - (seconds % 10)).toPrecision(2);
 }
 // зарежда снимките за да върви по-бързо играта
 function loadImages() {
