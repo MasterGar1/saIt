@@ -6,7 +6,7 @@ const powerBtn = document.getElementById("power");
 const playBtn = document.getElementById("play");
 const textBox = [document.getElementById("line1"), document.getElementById("line2"), document.getElementById("line3"), document.getElementById("line4"), document.getElementById("line5"), document.getElementById("line6"), document.getElementById("line7")];
 
-const tilesX = 24;
+const tilesX = 22;
 const tilesY = 16;
 const tileSize = 32;
 cvs.width = tilesX * tileSize;
