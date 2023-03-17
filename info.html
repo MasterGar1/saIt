@@ -8,33 +8,60 @@ title: Info
 <h1>Game rules</h1>
 
 <h2>How to play</h2>
-<p>You can move around the map in all directions, including diagonaly. This is done with the WASD keys. You can attack by holding the Left mouse button. This will hit all the enemies in the shown range. After defeating enemies you get powerups. There are five different ones you can get, that are described below.</p>
+<p>
+	You can move around the map in all directions, including diagonaly. 
+	This is done with the WASD keys. You can attack by holding the Left mouse button. 
+	Alternatevely, you can press the R key to make the character attack constantly. 
+	This will hit all the enemies in the shown range. 
+	After defeating enemies you get powerups. 
+	There are five different ones you can get, that are described below.
+</p>
 
 <h2>Powerups</h2>
 <div class="powers">
 	<h3>Health:</h3>
 	<li id="hp">- your health will be increased by </li>
 	
-	{% include image.html imagesrc="powerups/health.png" %}
+	<div>
+		<article class="card">
+			<img src="powerups/health.png" class="sprite">
+		</article>
+	</div>
 	
 	<h3>Attack:</h3>
 	<li  id="atk">- your attack will be increased by </li>
 
-	{% include image.html imagesrc="powerups/attack.png" %}
+	<div>
+		<article class="card">
+			<img src="powerups/attack.png" class="sprite">
+		</article>
+	</div>
 	
 	<h3>Attack Speed:</h3>
 	<li  id="as">- your attack speed will be increased by </li>
 
-	{% include image.html imagesrc="powerups/aspeed.png" %}
+	<div>
+		<article class="card">
+			<img src="powerups/aspeed.png" class="sprite">
+		</article>
+	</div>
 	
 	<h3>Attack Width:</h3>
 	<li  id="aw">- your attack width will be increased by </li>
 
-	{% include image.html imagesrc="powerups/width.png" %}
+	<div>
+		<article class="card">
+			<img src="powerups/width.png" class="sprite">
+		</article>
+	</div>
 	
 	<h3>Attack Length:</h3>
 	<li  id="al">- your attack length will be increased by </li>
 
-	{% include image.html imagesrc="powerups/length.png" %}
+	<div>
+		<article class="card">
+			<img src="powerups/length.png" class="sprite">
+		</article>
+	</div>
 </div>
 <script src="const.js"></script>
