@@ -7,7 +7,7 @@
     <label for="menu" class="burger pseudo button">Menu</label>
 
     <div class="menu">
-        <a href="info.html" class="pseudo button">Info</a>
-        <a href="game.html" class="pseudo button">Game</a>
+        <a href="info.html" class="{% if page.name != 'info.html' %}pseudo{% endif %} button">Info</a>
+        <a href="game.html" class="{% if page.name != 'game.html' %}pseudo{% endif %} button">Game</a>
     </div>
 </nav>

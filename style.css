@@ -97,3 +97,8 @@ article > img {
 button {
 	font-family: var(--sans-serif), sans-serif;
 }
+
+a.button {
+	background-color: var(--select);
+	color: var(--navbar);
+}

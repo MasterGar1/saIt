@@ -41,7 +41,7 @@ class Hero {
 		this.direction = "down";
 		this.spriteCounter = 0;
 		this.sprite = 0;
-		this.class = 'm';
+		this.class = 'w';
 
 		this.setupStats();
 		this.mousePressed = false;
