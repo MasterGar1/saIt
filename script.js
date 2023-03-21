@@ -120,66 +120,34 @@ class Hero {
 
 		ctx.drawImage(this.img, this.x, this.y, tileSize, tileSize);
 	}
-	// движение според ъгъла, подаден чрез комбинация от клавиши
+	// движение чрез комбинация от клавиши
 	move() {
-		// според кои бутони са натиснати, намираме ъгъл, по който героят ще ходи
-		// градусните мерки на ъглите са на обратно защото ординатната и абцисната ос на канваса са обърнати !!!
-		let angle = 0;
-		let keysPressed = 0;
-		if (this.right) {
-			angle += 0; // 0
-			keysPressed++;
+		// функция за създаване на комплексно число
+		function Complex(r, i){
+			return { r, i };
 		}
-
-		if (this.down) {
-			angle += Math.PI / 2; // π/2
-			keysPressed++;
+		// умножава комплексни числа
+		function multiplyComplex(a, b) {
+			let r = a.r * b.r - a.i * b.i;
+			let i = a.r * b.i + a.i * b.r;
+			return { r, i };
 		}
-
-		if (this.left) {
-			angle += Math.PI; // π
-			keysPressed++;
+		// нормализира дължината на движението
+		function normalizeComplex(a){
+			let r = a.r / Math.sqrt(a.r ** 2 + a.i ** 2);
+			let i = a.i / Math.sqrt(a.r ** 2 + a.i ** 2);
+			return { r, i };
 		}
-
-		if (this.up) {
-			if (this.right) {
-				angle += Math.PI / -2; // -π/2
-			}
-			else {
-				angle += 3 * Math.PI / 2; // 3π/2
-			}
-			keysPressed++;
-		}
-
-		angle /= keysPressed;
-		// като използваме дефиницията за тригономентичните функции, разбираме, че крайната точка в която ще е героя е с координати D(cos(angle);sin(angle))
-		let dx = Math.cos(angle) * this.speed;
-		let dy = Math.sin(angle) * this.speed;
-		// проверка за краищата на картата
-		if (this.x < -dx) {
-			dx = 0;
-		}
-
-		if (this.x > cvs.width - tileSize - dx) {
-			dx = 0;
-		}
-
-		if (this.y < -dy) {
-			dy = 0;
-		}
-
-		if (this.y > cvs.height - tileSize - dy) {
-			dy = 0;
-		}
-		// забрана за използване на противоположни посоки
-		if ((this.up && this.down) || (this.right && this.left)) {
-			dx = 0;
-			dy = 0;
-		}
+		// движим се според посоката, подадена от клавиши
+		let moveX = (this.right ? 1 : 0) - (this.left ? 1 : 0);
+		let moveY = (this.up ? 1 : 0) - (this.down ? 1 : 0);
+		let complexVec = new Complex(moveX, moveY);
+		let moveDirection = new multiplyComplex(complexVec, new Complex(0, 1));
+		let moveVec = new normalizeComplex(moveDirection);
 		// добавяне на дистанцията
 		if (this.left || this.right || this.up || this.down) {
-			this.x += dx;
-			this.y += dy;
+			this.x += moveVec.i * this.speed;
+			this.y += moveVec.r * this.speed;
 		}
 	}
 	// сменяне на картинката на героя, в зависимост от какво действие прави
