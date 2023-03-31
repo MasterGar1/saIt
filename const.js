@@ -3,18 +3,21 @@ const AtKincrease = 3;
 const HPincrease = 15;
 const ALincrease = 8;
 const AWincrease = 8;
+const doc = document.title;
 
-const hp = document.getElementById("hp");
-hp.textContent += HPincrease;
+if(doc == "Info"){
+    const hp = document.getElementById("hp");
+    hp.textContent += HPincrease;
 
-const atk = document.getElementById("atk");
-atk.textContent += AtKincrease;
+    const atk = document.getElementById("atk");
+    atk.textContent += AtKincrease;
 
-const as = document.getElementById("as");
-as.textContent += ASincrease;
+    const as = document.getElementById("as");
+    as.textContent += ASincrease;
 
-const aw = document.getElementById("aw");
-aw.textContent += AWincrease;
+    const aw = document.getElementById("aw");
+    aw.textContent += AWincrease;
 
-const al = document.getElementById("al");
-al.textContent += ALincrease;
+    const al = document.getElementById("al");
+    al.textContent += ALincrease;
+}

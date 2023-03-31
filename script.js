@@ -1,10 +1,18 @@
 const cvs = document.getElementById("canvas");
 const ctx = cvs.getContext("2d");
+
 const spawnBtn = document.getElementById("spawn");
 const resetBtn = document.getElementById("reset");
 const powerBtn = document.getElementById("power");
 const playBtn = document.getElementById("play");
-const textBox = [document.getElementById("line1"), document.getElementById("line2"), document.getElementById("line3"), document.getElementById("line4"), document.getElementById("line5"), document.getElementById("line6"), document.getElementById("line7")];
+
+const textBox = [document.getElementById("line1"), 
+				document.getElementById("line2"), 
+				document.getElementById("line3"), 
+				document.getElementById("line4"), 
+				document.getElementById("line5"), 
+				document.getElementById("line6"), 
+				document.getElementById("line7")];
 
 const tilesX = 24;
 const tilesY = 16;
@@ -141,9 +149,27 @@ class Hero {
 		// движим се според посоката, подадена от клавиши
 		let moveX = (this.right ? 1 : 0) - (this.left ? 1 : 0);
 		let moveY = (this.up ? 1 : 0) - (this.down ? 1 : 0);
+		
+		if (this.x < - moveX * this.speed) {
+			moveX--
+		}
+
+		if (this.x > cvs.width - this.size - moveX * this.speed) {
+			moveX++
+		}
+
+		if (this.y < - moveY * this.speed) {
+			moveY--
+		}
+
+		if (this.y > cvs.height - this.size - moveY * this.speed) {
+			moveY++
+		}
+
 		let complexVec = new Complex(moveX, moveY);
 		let moveDirection = new multiplyComplex(complexVec, new Complex(0, 1));
 		let moveVec = new normalizeComplex(moveDirection);
+		
 		// добавяне на дистанцията
 		if (this.left || this.right || this.up || this.down) {
 			this.x += moveVec.i * this.speed;
